@@ -7,19 +7,24 @@ export default function Main() {
   const [countries, setCountries] = useState([]);
   const [continents, setContinents] = useState([]);
   const [continent, setContinent] = useState('All');
+
   useEffect(() => {
     const fetchData = async () => {
       const resp = await fetchCountries();
       {
+        //make an array with the continents only once
         const onlyContinents = [...new Set(resp.map((aContinent) => aContinent.continent))];
-        console.log('resp', onlyContinents);
-        setContinents(onlyContinents);
+        //filter out the null values and add All to the start
+        const filteredContinents = onlyContinents.filter(Boolean);
+        filteredContinents.unshift('All');
+        setContinents(filteredContinents);
       }
       setCountries(resp);
     };
     fetchData();
   }, []);
 
+  //filter countries by continent
   const filterCountries = () => {
     return countries.filter((country) => country.continent === continent || continent === 'All');
   };
