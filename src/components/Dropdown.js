@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function Dropdown({ name }) {
+export default function Dropdown({ continent }) {
   return (
     <>
-      <option>{name}</option>
+      <option>{continent}</option>
     </>
   );
 }

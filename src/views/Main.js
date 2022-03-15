@@ -5,10 +5,15 @@ import Dropdown from '../components/Dropdown';
 
 export default function Main() {
   const [countries, setCountries] = useState([]);
+  const [continents, setContinents] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       const resp = await fetchCountries();
-      console.log('resp', resp);
+      {
+        const onlyContinents = [...new Set(resp.map((aContinent) => aContinent.continent))];
+        console.log('resp', onlyContinents);
+        setContinents(onlyContinents);
+      }
       setCountries(resp);
     };
     fetchData();
@@ -16,8 +21,8 @@ export default function Main() {
   return (
     <>
       <select>
-        {countries.map((country) => (
-          <Dropdown key={country.id} {...country} />
+        {continents.map((continent) => (
+          <Dropdown key={continent} {...{ continents }} />
         ))}
       </select>
       <div>
