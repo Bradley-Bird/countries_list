@@ -6,6 +6,7 @@ import Dropdown from '../components/Dropdown';
 export default function Main() {
   const [countries, setCountries] = useState([]);
   const [continents, setContinents] = useState([]);
+  const [continent, setContinent] = useState('All');
   useEffect(() => {
     const fetchData = async () => {
       const resp = await fetchCountries();
@@ -20,7 +21,7 @@ export default function Main() {
   }, []);
   return (
     <>
-      <select>
+      <select onChange={(e) => setContinent(e.target.value)}>
         {continents.map((continent) => (
           <Dropdown key={continent} {...{ continent }} />
         ))}
