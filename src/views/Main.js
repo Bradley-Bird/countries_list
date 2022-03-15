@@ -19,6 +19,11 @@ export default function Main() {
     };
     fetchData();
   }, []);
+
+  const filterCountries = () => {
+    return countries.filter((country) => country.continent === continent || continent === 'All');
+  };
+
   return (
     <>
       <select onChange={(e) => setContinent(e.target.value)}>
@@ -27,7 +32,7 @@ export default function Main() {
         ))}
       </select>
       <div>
-        {countries.map((country) => (
+        {filterCountries().map((country) => (
           <Country_Card key={country.id} {...country} />
         ))}
       </div>
