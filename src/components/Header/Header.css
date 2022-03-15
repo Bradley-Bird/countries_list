@@ -1,4 +1,10 @@
 .header {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
     height: 50px;
     font-size: 50px;
     font-weight: 900;
@@ -7,4 +13,6 @@
     border-bottom: solid black 2px;
     padding-bottom: 20px;
     color: rgb(197, 133, 54);
+    background-color: black;
+    z-index: 10000;
 }

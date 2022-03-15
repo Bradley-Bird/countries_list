@@ -46,8 +46,8 @@ export default function Main() {
     );
 
   return (
-    <>
-      <select onChange={(e) => setContinent(e.target.value)}>
+    <main>
+      <select className="select" onChange={(e) => setContinent(e.target.value)}>
         {continents.map((continent) => (
           <Dropdown key={continent} {...{ continent }} />
         ))}
@@ -58,6 +58,6 @@ export default function Main() {
           <Country_Card key={country.id} {...country} />
         ))}
       </div>
-    </>
+    </main>
   );
 }
