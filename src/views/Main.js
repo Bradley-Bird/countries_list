@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchCountries } from '../services/countries';
 import Country_Card from '../components/Country_Card';
+import Dropdown from '../components/Dropdown';
 
 export default function Main() {
   const [countries, setCountries] = useState([]);
@@ -13,10 +14,17 @@ export default function Main() {
     fetchData();
   }, []);
   return (
-    <div>
-      {countries.map((country) => (
-        <Country_Card key={country.id} {...country} />
-      ))}
-    </div>
+    <>
+      <select>
+        {countries.map((country) => (
+          <Dropdown key={country.id} {...country} />
+        ))}
+      </select>
+      <div>
+        {countries.map((country) => (
+          <Country_Card key={country.id} {...country} />
+        ))}
+      </div>
+    </>
   );
 }
