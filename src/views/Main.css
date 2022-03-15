@@ -1,3 +1,14 @@
+.flags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px;
+    font-weight: bold;
+}
+
+
+
+
 .loader {
     font-size: 48px;
     color: #FFF;

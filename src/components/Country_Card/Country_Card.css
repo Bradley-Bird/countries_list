@@ -1,0 +1,9 @@
+.country {
+    height: 150px;
+    width: 100px;
+    margin: 5px;
+    padding: 5px;
+    border: white solid 2px;
+    background-color: rgba(5, 12, 46, 0.5);
+    box-shadow: 10px 5px 4px black;
+}

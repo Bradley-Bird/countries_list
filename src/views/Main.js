@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchCountries } from '../services/countries';
-import Country_Card from '../components/Country_Card';
+import Country_Card from '../components/Country_Card/Country_Card';
 import Dropdown from '../components/Dropdown';
 import './Main.css';
 
@@ -52,7 +52,7 @@ export default function Main() {
           <Dropdown key={continent} {...{ continent }} />
         ))}
       </select>
-      <div>
+      <div className="flags">
         <p>{errorMessage}</p>
         {filterCountries().map((country) => (
           <Country_Card key={country.id} {...country} />
