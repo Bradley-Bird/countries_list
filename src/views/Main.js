@@ -22,7 +22,7 @@ export default function Main() {
     <>
       <select>
         {continents.map((continent) => (
-          <Dropdown key={continent} {...{ continents }} />
+          <Dropdown key={continent} {...{ continent }} />
         ))}
       </select>
       <div>
