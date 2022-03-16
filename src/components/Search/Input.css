@@ -1,0 +1,9 @@
+input {
+    display: flex;
+    position: fixed;
+    left: 120px;
+    z-index: 20000;
+    width: 100px;
+    background-color: white;
+
+}
