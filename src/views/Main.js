@@ -11,6 +11,7 @@ export default function Main() {
   const [continent, setContinent] = useState('All');
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(true);
+  const [searchBar, setSearchBar] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,8 +37,13 @@ export default function Main() {
 
   //filter countries by continent
   const filterCountries = () => {
-    return countries.filter((country) => country.continent === continent || continent === 'All');
+    return countries.filter(
+      (country) =>
+        (country.continent === continent && country.name.toLowerCase().includes(searchBar)) ||
+        (continent === 'All' && country.name.toLowerCase().includes(searchBar))
+    );
   };
+
   //if loading = true then display loader
   if (loading)
     return (
@@ -53,7 +59,7 @@ export default function Main() {
           <Dropdown key={continent} {...{ continent }} />
         ))}
       </select>
-      <Input />
+      <Input {...{ searchBar }} callback={setSearchBar} />
       <div className="flags">
         <p>{errorMessage}</p>
         {filterCountries().map((country) => (
